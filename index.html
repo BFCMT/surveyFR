@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Navigation task</title>
+    <!-- Mapbox GL -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+    <!-- Google Street View -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCamZGmmFVJ4l2znsOWNpuWi-1_eQk7_Js" async defer></script>
+    <!-- Pako compression -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
+</head>
+<body class="welcome">
+
+
+    <div id="welcome" class="welcome">
+        <h1>🌍 Exercice d'orientation</h1>
+        <p>ℹ️ Ce test consiste en <b>deux exercices d'orientation</b> dans Google Street View et <b>quelques questions</b> à répondre. Le sondage est conçu pour être simple et ne devrait prendre qu'une <b>dizaine de minutes</b>.</p>
+        <p>💻 Veuillez compléter ce sondage sur un <b>ordinateur</b> et mettre la <b>fenêtre en plein écran</b>. Essayez d'utiliser <b>Google Chrome</b> si vous le pouvez.</p>
+        <p style="font-size: small;"><i>Veuillez noter que toutes les données collectées resteront anonymes et ne seront ni vendues ni partagées avec des tiers. Les informations recueillies sont uniquement destinées à mon mémoire de master de Cartographie. Si vous avez des questions ou des remarques, n'hésitez pas à me contacter par email à bfc.thesis@gmail.com.</i></p>
+        <button onclick="startTest1()">Continuer</button>
+    </div>
+
+
+
+    <div id="task" class="task1 task2 test1 test2">
+        <div class="left">
+            <div id="instructions" class="view">
+                <div class="content test1">
+                    <p><b>Test(1/2) :</b> Les instructions pour chaque exercice seront affichées ici.</p>
+                    <p>➡️ À droite : la vue Street View. <b>Cliquez</b> sur un lieu pour naviguer, <b>cliquez et faites glisser</b> pour regarder autour de vous, et utilisez la <b>molette de la souris</b> ou les boutons pour zoomer.</p>
+                    <p>⬇️ En dessous : la vue Carte. <b>Appuyez et faites glisser</b> pour déplacer la carte, et utilisez la <b>molette de la souris</b> ou les boutons pour zoomer. <b>Zoomez</b> pour voir <b>plus de détails</b> sur la carte.</p>
+                    <p>Prenez le temps de vous familiariser avec l'interface ; appuyez sur <button onclick="startTask1()">Commencer l'exercice (1/2)</button> lorsque vous êtes prêt.</p>
+                </div>
+                <div class="content test2">
+                    <p><b>Test(2/2) :</b> La carte ci-dessous a changé ; prenez le temps de vous familiariser avec elle ; appuyez sur <button onclick="startTask2()">Commencer l'exercice (2/2)</button> lorsque vous êtes prêt. <b>Zoomez</b> pour voir <b>plus de détails</b> sur la carte.</p>
+                </div>
+                <div class="content task1">
+                    <p><b>Exercice(1/2) :</b> Vous commencez à l'emplacement A dans Street View. <b>Suivez le chemin</b> jusqu'à l'emplacement B aussi <b>précisément et rapidement</b> que possible.</p>
+                    <p><b>📍Départ(A) :</b> Assurez-vous de faire face à la bonne direction.</p>
+                    <p><b>📍Arrivée(B) :</b> Soyez aussi proche que possible du marqueur sur la carte, puis appuyez sur <button onclick="startForm1()">Je suis à l'emplacement B</button></p>
+                </div>
+                <div class="content task2">
+                    <p><b>Exercice(2/2) :</b> Vous commencez à l'emplacement C dans Street View. <b>Suivez le chemin</b> jusqu'à l'emplacement D aussi <b>précisément et rapidement</b> que possible.</p>
+                    <p><b>📍Départ(C) :</b> Assurez-vous de faire face à la bonne direction.</p>
+                    <p><b>📍Arrivée(D) :</b> Soyez aussi proche que possible du marqueur sur la carte, puis appuyez sur <button onclick="startForm2()">Je suis à l'emplacement D</button></p>
+                    </p>
+                </div>
+            </div>
+            <div id="mapView" class="view"></div>
+        </div>
+        <div class="right">
+            <div id="streetView" class="view"></div>
+        </div>
+
+    </div>
+
+
+    <div id="form" class="form">
+        <iframe id="iframe" class="form" src="https://docs.google.com/forms/d/e/1FAIpQLScQJJD3-ojIg8RmciLR8z732nFCwisLgPzjHJjJkztnccOwdg/viewform?embedded=true" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Chargement…</iframe>
+        <button id="bForm" class="form" onclick="startTest2()">Cliquez ici après avoir envoyé le formulaire</button>
+    </div>
+
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
